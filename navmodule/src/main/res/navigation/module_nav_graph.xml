@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/module_nav_graph"
+    app:startDestination="@id/moduleHostFragment">
+
+    <action
+        android:id="@+id/action_mudule_to_app"
+        app:popUpTo="@id/moduleHostFragment"
+        app:popUpToInclusive="true" />
+
+    <fragment
+        android:id="@+id/moduleHostFragment"
+        android:name="com.yuliyang.navmodule.ModuleHostFragment"
+        android:label="ModuleHostFragment"
+        tools:layout="@layout/fragment_module_host" />
+
+</navigation>

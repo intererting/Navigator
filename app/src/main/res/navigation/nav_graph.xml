@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/hostFragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/hostFragment"
+        android:name="com.yuliyang.navigator.HostFragment"
+        android:label="HostFragment"
+        tools:layout="@layout/fragment_host">
+        <action
+            android:id="@+id/action_hostFragment_to_destAFragment"
+            app:destination="@id/nestedNavigation" />
+        <action
+            android:id="@+id/action_hostFragment_to_module_nav_graph"
+            app:destination="@id/module_nav_graph" />
+        <action
+            android:id="@+id/action_hostFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_hostFragment_to_variableFragment"
+            app:destination="@id/variableFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_hostFragment_to_deepLinkFragment"
+            app:destination="@id/deepLinkFragment" />
+        <action
+            android:id="@+id/action_hostFragment_to_shareElementFragment"
+            app:destination="@id/shareElementFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" />
+    </fragment>
+
+    <include app:graph="@navigation/module_nav_graph" />
+
+    <navigation
+        android:id="@+id/nestedNavigation"
+        app:startDestination="@id/destAFragment">
+        <fragment
+            android:id="@+id/destAFragment"
+            android:name="com.yuliyang.navigator.DestAFragment"
+            android:label="DestAFragment"
+            tools:layout="@layout/fragment_desta">
+            <action
+                android:id="@+id/action_destAFragment_to_destBFragment"
+                app:destination="@id/destBFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/destBFragment"
+            android:name="com.yuliyang.navigator.DestBFragment"
+            android:label="DestBFragment"
+            tools:layout="@layout/fragment_destb">
+            <action
+                android:id="@+id/action_destBFragment_to_hostFragment"
+                app:destination="@id/hostFragment"
+                app:popUpTo="@id/hostFragment"
+                app:popUpToInclusive="true" />
+        </fragment>
+    </navigation>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.yuliyang.navigator.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.yuliyang.navigator.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login" />
+    <action
+        android:id="@+id/action_global_loginFragment"
+        app:destination="@id/loginFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim">
+        <argument
+            android:name="userPhone"
+            app:argType="string" />
+    </action>
+    <fragment
+        android:id="@+id/variableFragment"
+        android:name="com.yuliyang.navigator.VariableFragment"
+        android:label="VariableFragment"
+        tools:layout="@layout/fragment_variable">
+        <argument
+            android:name="params"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/deepLinkFragment"
+        android:name="com.yuliyang.navigator.DeepLinkFragment"
+        android:label="DeepLinkFragment"
+        tools:layout="@layout/fragment_deep_link">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="obj://com.yly.deeplink/{name}" />
+    </fragment>
+    <fragment
+        android:id="@+id/shareElementFragment"
+        android:name="com.yuliyang.navigator.ShareElementFragment"
+        android:label="ShareElementFragment"
+        tools:layout="@layout/fragment_share" />
+
+</navigation>

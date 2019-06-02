@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="host"
+        android:textSize="50sp" />
+
+    <Button
+        android:id="@+id/jumpToDestA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="跳转到DestAFragment" />
+
+    <Button
+        android:id="@+id/jumpToModele"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="跳转到Module" />
+
+    <Button
+        android:id="@+id/profileFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="跳转到ProfileFragment" />
+
+    <Button
+        android:id="@+id/variableFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="传递数据" />
+
+    <Button
+        android:id="@+id/deepLinkExplicit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试显式DeepLink" />
+
+    <ImageView
+        android:id="@+id/shareView"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:src="@drawable/test"
+        android:transitionName="share" />
+
+</LinearLayout>

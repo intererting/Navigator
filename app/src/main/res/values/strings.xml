@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Navigator</string>
+
+    <string name="cd_home">Home</string>
+    <string name="cd_list">List</string>
+    <string name="cd_form">Form</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_register">Register</string>
+    <string name="title_list">Leaderboard</string>
+</resources>
