@@ -1,5 +1,6 @@
 package com.yuliyang.navigator
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.NavDeepLinkBuilder
-import androidx.navigation.findNavController
+import androidx.navigation.ActivityNavigator
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_host.*
@@ -54,6 +54,23 @@ class HostFragment : Fragment() {
                     null, // Bundle of args
                     null, // NavOptions
                     extras)
+        }
+
+        navToActivity.setOnClickListener {
+            //            println("HostFragment ${findNavController()}")
+            val destination = ActivityNavigator.Destination(homeNavigator)
+                    .setIntent(Intent(requireContext(), SecondActivity::class.java))
+            homeNavigator.navigate(destination,
+                    bundleOf("name" to "yuliyang"),
+                    NavOptions.Builder().setLaunchSingleTop(true).build(),
+                    ActivityNavigator.Extras.Builder().build())
+
+//            val destination = ActivityNavigator.Destination(homeNavigator)
+//                    .setIntent(Intent(requireContext(), SecondGraphActivity::class.java))
+//            homeNavigator.navigate(destination,
+//                    bundleOf("name" to "yuliyang"),
+//                    NavOptions.Builder().setLaunchSingleTop(true).build(),
+//                    ActivityNavigator.Extras.Builder().build())
         }
     }
 
